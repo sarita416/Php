@@ -1,0 +1,22 @@
+Write a php program which make connection with MySQL database and echo "Database
+Connection Successful".
+
+<?php
+	// Step 1: Define Database Credentials
+	$servername = "localhost"; // Change if hosted elsewhere
+	$username = "root"; // Default for XAMPP/WAMP
+	$password = ""; // Default is empty
+	$database = "mydb"; // Change to your database name
+
+	// Step 2: Create Connection using 'mysqli' OOP Method
+	$conn = new mysqli($servername, $username, $password, $database);
+
+	// Step 3: Check Connection
+	if ($conn->connect_error) {
+		die("Database Connection Failed: " . $conn->connect_error);
+	} 
+	echo "Database Connection Successful!";
+
+	// Step 4: Close the Connection (Optional)
+	$conn->close();
+?>
