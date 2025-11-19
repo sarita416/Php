@@ -1,0 +1,37 @@
+Write a PHP script to accept names of 10 cities through a HTML form and display the cities in
+alphabetical order.
+-->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sorting of 10 Cities</title>
+	</head>
+	<body>
+	<form method = "POST">
+	<h3>
+	<?php
+		for($i = 1; $i < 10+1; $i++)
+		{
+			echo "Enter City $i : <input type = 'text' name = 'cities[]'><br><br>";
+		}
+	?>
+	
+	<input type = "submit" value = "Submit" name = "b1">
+	</form>
+	
+	<?php
+		if(isset($_POST['b1']))
+		{
+			$cities = $_POST['cities'];
+			$count = count($cities);
+			
+			sort($cities);
+			for($i = 0; $i < $count; $i++)
+			{
+				echo "<br>City " . ($i+1) . " : " . $cities[$i]; // . htmlspecialchars($cities[$i]);
+			}
+		}
+	?>
+	</body>
+</html>
