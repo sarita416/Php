@@ -1,0 +1,30 @@
+Write a PHP program to accept 10 names of students and store those names one below the other in a text file “studentlist.txt” with first line in this text file being “List of Students”.
+-->
+
+<html>
+
+<body>
+    <form method="POST">
+        <?php
+			for ($i = 1; $i <= 10; $i++) {
+				echo "Student $i : <input type = 'text' name = 'student[]' required><br><br>";
+			}
+        ?>
+        <br>
+        <input type="submit">
+    </form>
+    <?php
+		if ($_SERVER["REQUEST_METHOD"] === "POST") {
+			$student = $_POST["student"];
+			$file = fopen("slip10asem04php_textfile.txt", "w");
+			fwrite($file, "List of students\n");
+			foreach ($student as $s) {
+				fwrite($file, $s . "\n");
+			}
+			fclose($file);
+			echo "<h3>Saved Successfully.</h3>";
+    }
+    ?>
+</body>
+
+</html>
