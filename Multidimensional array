@@ -1,0 +1,37 @@
+Declare a Multidimensional Array. Display specific element from a Multidimensional array. Also delete given element from the Multidimensional array.
+-->
+
+<?php
+	$array = [
+		[1, 2, 3],
+		[4, 5, 6],
+		[7, 8, 9]
+	];
+	echo "<br><br>Original array is :<br>";
+	foreach ($array as $row)
+	{
+		echo "<br>";
+		foreach ($row as $element)
+		{    echo $element . " ";   }
+	}
+	
+	$specific_element = $array[1][2];
+	
+	echo "<br><br>Specific element : " . $specific_element . "<br>";
+	unset($array[1][2]);
+	
+	echo "<br>Array after deletion is :<br>";
+	foreach ($array as $row) {
+		echo "<br>";
+		foreach ($row as $element) {
+			echo $element . " ";
+		}
+	}
+	/*
+	// If you want to print the associative array as well, then write this code also!
+	echo "<br><br>";
+	echo "<pre>";
+	print_r($array);
+	echo "</pre>";
+	*/
+?>
