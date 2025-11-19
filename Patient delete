@@ -1,0 +1,44 @@
+Write a php program to delete particular record of patient using patientno. Provide delete button to delete the record.
+-->
+
+<!DOCTYPE html>
+<html>
+    <form method="POST">
+        <body>
+            <b>Enter patient ID : </b><input type="number" name="t1" required><br><br>
+            <button type = "submit">Delete</button>
+			
+			<?php
+				if($_SERVER["REQUEST_METHOD"] == "POST")
+				{					
+					// Establish the connection
+					$conn = new mysqli("localhost", "root", "", "mydb", "3306");
+					
+					// Check Connection
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
+					}
+					
+					$q = "DELETE FROM patient WHERE patient_id = ?";
+					
+					$stmt = $conn->prepare($q);
+					
+					// Check if statement is prepared successfully
+					if ($stmt == false) {
+						die("Error preparing statement");
+					}
+					
+					// Bind the data to statement runtime. In this case "i" (integer) (pid)
+					$stmt->bind_param("i", $_POST["t1"]);
+					if ($stmt->execute()) {
+						echo "Record deleted";
+					} else {
+						echo "Error in deleting the record";
+					}
+					$stmt->close();
+					$conn->close();
+				}
+			?>
+        </body>
+    </form>
+</html>
