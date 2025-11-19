@@ -1,0 +1,44 @@
+Write a php program to delete particular record of student using ROll no. provide delete button for this.
+-->
+
+<html>
+<body>
+	<form method="POST">
+       <b>Enter student Roll No :</b> <input type="number" name="t1"> <br>
+       <button>Delete</button>
+	</form>
+	
+	<?php
+		if($_SERVER["REQUEST_METHOD"] == "POST")
+		{
+			$conn = new mysqli("localhost", "root", "", "mydb");
+
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+
+			$q = "DELETE FROM Student WHERE roll_no = ?";
+
+			$stmt = $conn->prepare($q);
+
+			// Checking if prepare statement was successful
+			if ($stmt === false) {
+				die("Error in Preparing the statement : " . $conn->error);
+			}
+			
+			$rn = $_POST['t1'];
+
+			$stmt->bind_param('i', $rn);
+
+			if ($stmt->execute()) {
+				echo "Record Deleted";
+			} else {
+				echo "Error in deleting the record";
+			}
+
+			$stmt->close();
+			$conn->close();
+		}
+	?>
+</body>
+</html>
