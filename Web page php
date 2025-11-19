@@ -1,0 +1,23 @@
+Write a script to keep track of number of times the web page has been accessed.
+-->
+
+<?php
+	session_start();
+	if (!isset($_SESSION['pageCount'])) {
+		$_SESSION['pageCount'] = 0;
+	}
+	$_SESSION['pageCount']++;
+?>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1> Page Counter !!! </h1>
+    <h2> Welcome to the Page! </h2>
+    <h3>
+        <p> You have accessed this page <strong> <?php echo $_SESSION['pageCount']; ?> </strong> times during this session. </p>
+    </h3>
+</body>
+
+</html>
