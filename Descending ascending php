@@ -1,0 +1,34 @@
+people = array(
+    "Rahul" => 31,
+    "Jui" => 41,
+    "Veena" => 39,
+    "Rijul" => 40
+);
+// printing the orignal array
+echo "Orignal Array (without sorting) :<br>";
+print_r($people);
+echo "<br><br>";
+
+// a. Ascending order sort by value
+asort($people);
+echo "Ascending order (by Value):<br>";
+print_r($people);
+echo "<br><br>";
+
+// b. Ascending order sort by Key
+ksort($people);
+echo "Ascending order (by Key):<br>";
+print_r($people);
+echo "<br><br>";
+
+// c. Descending order sorting by Value
+arsort($people);
+echo "Descending order (by Value):<br>";
+print_r($people);
+echo "<br><br>";
+
+// d. Descending order sorting by Key
+krsort($people);
+echo "Descending order (by Key):<br>";
+print_r($people);
+?>
