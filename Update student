@@ -1,0 +1,51 @@
+Write a php program which update contact number of particular student. Provide edit option to update record.
+-->
+
+<html>
+
+<body>
+    <h2>Update student info</h2>
+	
+    <form method="POST">
+        Enter Roll No. : <input type="number" name="t1"><br><br>
+        Enter new contact no. : <input type="number" name="t2"><br><br>
+        <button>Update</button>
+    </form>
+	
+	<?php
+		if($_SERVER["REQUEST_METHOD"] == "POST")
+		{
+			$conn = new mysqli("localhost", "root", "", "mydb");
+
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+
+			$rno = $_POST['t1'];
+			$contactno = $_POST['t2'];
+
+			$sql = "UPDATE student SET contact_no = ? WHERE roll_no = ?";
+
+			$stmt = $conn->prepare($sql);
+
+			if ($stmt === false) {
+				die("Error in preparing statement");
+			}
+
+			$stmt->bind_param("ii", $contactno, $rno);
+
+			if ($stmt->execute()) {
+				echo "Contact Updated successfully";
+			} else {
+				echo "Contact not updated";
+			}
+
+			$stmt->close();
+			$conn->close();
+		}
+	?>
+</body>
+</html>
+
+
+<!--
