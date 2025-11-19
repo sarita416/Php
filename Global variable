@@ -1,0 +1,46 @@
+Slip-04(A)
+Display Server information using super global variable
+-->
+
+<?php
+	echo "<h2> Server Information </h2>";
+	
+	echo "<table border = 1>
+				<tr>
+					<th> Prpperties </th>
+					<th> Values </th>
+				</tr>
+				<tr>
+					<td> Server Name </td>
+					<td>" . $_SERVER["SERVER_NAME"] . "</td>
+				</tr>
+				<tr>
+					<td> Server IP </td>
+					<td>" . $_SERVER["SERVER_ADDR"] . "</td>
+				</tr>
+				<tr>
+					<td> Server Software </td>
+					<td>" . $_SERVER["SERVER_SOFTWARE"] . "</td>
+				</tr>
+				<tr>
+					<td> Script </td>
+					<td>" . $_SERVER["SCRIPT_NAME"] . "</td>
+				</tr>
+				<tr>
+					<td> Client IP </td>
+					<td>" . $_SERVER["REMOTE_ADDR"] . "</td>
+				</tr>
+				<tr>
+					<td> Server Protocol </td>
+					<td>" . $_SERVER["SERVER_PROTOCOL"] . "</td>
+				</tr>
+				<tr>
+					<td> Request Method </td>
+					<td>" . $_SERVER["REQUEST_METHOD"] . "</td>
+				</tr>
+				<tr>
+					<td> Port No. </td>
+					<td>" . $_SERVER["SERVER_PORT"] . "</td>
+				</tr>
+	      </table>";
+?>
