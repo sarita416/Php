@@ -1,0 +1,25 @@
+Write a php program to show all records from the Teacher table.
+-->
+
+<?php
+	$conn = new mysqli("localhost", "root", "", "mydb");
+
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+
+	$q = "SELECT * FROM teacher";
+	$res = $conn->query($q);
+
+	if ($res->num_rows > 0) {
+		while ($row = $res->fetch_row()) {
+			echo "<br>Teacher ID: " . $row[0] . "<br>";
+			echo "Teacher Name: " . $row[1] . "<br>";
+			echo "Teacher Subject: " . $row[2] . "<br>";
+		}
+	} else {
+		echo "No records found";
+	}
+
+	$conn->close();
+?>
