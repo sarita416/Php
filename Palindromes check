@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<h2>Palindrome Check</h2>
+	<form method = POST>
+		<label for = "inputString">Enter the String : </label>
+		<input type = "text" id = "inputString" name = "t1" required>
+		<br>
+		<button type = "submit">Check</button>
+	</form>
+		
+	<?php
+		if($_SERVER["REQUEST_METHOD"] == "POST")
+		{
+			// get the input string from the form
+			$input = $_POST['t1'];
+			$temp = strtolower($input);
+			
+			if($temp === strrev($temp))
+				echo "<br>The input string '$input' is a Palindrome";
+			else
+				echo "<br>The input string '$input' is NOT a Palindrome";
+		}
+	?>
+
+</body>
+</html>
