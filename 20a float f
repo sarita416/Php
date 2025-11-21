@@ -1,0 +1,13 @@
+import java.lang.Math.*;
+import java.util.Scanner;
+class sqmath
+{
+    Public static void main (String args[])
+    {
+        System.out.println ("Enter a num:");
+        Scanner sc = new Scanner (System.in);
+        float f = sc.nextFloat ();
+        System.out.println (Math.sqrt (f)); // static double
+                                          // sqrt (double arg)
+    }
+}
