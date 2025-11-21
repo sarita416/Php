@@ -1,0 +1,30 @@
+interface shape {
+    final float pi = 3.14f;
+    final float r = 2f;
+    abstract void area();
+}
+
+class circle implements shape {
+    public void area() {
+        float A = pi * r * r;
+        System.out.println("Area of circle is " + A);
+    }
+}
+
+class sphere implements shape {
+    public void area() {
+        // Area of Sphere = 4 * pi * r * r
+        float A = 4 * pi * r * r;
+        System.out.println("Area of sphere is " + A);
+    }
+}
+
+class interfaceshape {
+    public static void main(String[] args) {
+        Circle c = new Circle();
+        c.area();
+
+        Sphere s = new Sphere();
+        s.area();
+    }
+}
