@@ -1,0 +1,27 @@
+write a java program that display the number of
+character lines and words from file.
+-> import java.io.*;
+   class count
+   {
+       public static void main (String args[])
+       {
+           int count c=0; count l=0; count w=0;
+           try
+           {
+               FileReader fr = new FileReader("D:\\Java Lecture\\file\\
+                                             abc.txt");
+               while ( (c=fr.read()) != -1)
+               {
+                   char ch = (char)i;
+                   if (Character.isLetter(ch))
+                       count c++;
+                   else if (Character.isWhitespace(ch))
+                       count w++;
+                   else if (ch == ('.'))
+                       count l++;
+                   count c++;
+                   count w++;
+               }
+               System.out.println("total no of characters are: "
+                                 + count c);
+               System.out.println("total no of lines are: " + count l);
