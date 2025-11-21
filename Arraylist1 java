@@ -1,0 +1,22 @@
+import java.util.*;
+import java.util.Scanner;
+class Array_Student
+{
+    public static void main (String args [])
+    {
+        int i,n;
+        String m;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter no of students");
+        n = sc.nextInt();
+        ArrayList <String> al = new ArrayList <String> ();
+
+        for (i=0; i<n; i++)
+        {
+            m = sc.next();
+            al.add(m);
+        }
+        TreeSet <String> ts = new TreeSet <String> (al);
+        System.out.println(ts);
+    }
+}
