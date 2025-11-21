@@ -1,0 +1,83 @@
+Indoor File
+// Part of the Games package.
+*/
+package Games;
+
+public class Indoor
+{
+    String name;
+    int age;
+    int team;
+
+    // Constructor based on the handwritten notes: public Indoor(String s, int a)
+    public Indoor(String s, int a)
+    {
+        name = s;
+        age = a;
+        team = 11; // Hardcoded team value from the notes
+    }
+
+    public void display()
+    {
+        // In Indoor games player details are as follows:
+        System.out.println("In Indoor games player details are as follows:");
+        System.out.println("Name: " + name + " | Age: " + age + " | Team: " + team);
+    }
+}
+package Games;
+
+public class Outdoor
+{
+    String name;
+    int age;
+    int team;
+    String size;
+
+    public Outdoor(String s, int a, int t)
+    {
+        name = s;
+        age = a;
+        team = t;
+        size = "XL"; // Default size, assuming 'size' might be used for something else as it's not initialized in the constructor arguments.
+    }
+
+    public void display()
+    {
+        // In outdoor games player details are as follows:
+        System.out.println("In outdoor games player details are as follows:");
+        System.out.println("Name: " + name + " | Age: " + age + " | Team: " + team + " | Size: " + size);
+    }
+}
+package Imported;
+
+import Games.*;
+
+class GamesPackage_4 {
+    public static void main (String args[]) {
+        Games.Indoor i1 = new Games.Indoor("Cricket", 
+                                          "Tutu", 
+                                          33);
+        i1.display();
+        i2.display();
+        
+        Games.Outdoor o1 = new Games.Outdoor();
+        Games.Outdoor o2 = new Games.Outdoor("Wind", 30);
+        
+        o1.display();
+        o2.display();
+
+        // More code can be written
+        // here or application
+        
+        
+    }
+    
+    protected void finalize() throws Throwable {
+        try {
+            // ...
+        }
+        catch (Exception e) {
+            // ...
+        }
+    }
+}
