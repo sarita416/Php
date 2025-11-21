@@ -1,0 +1,34 @@
+import java.io.*;
+
+class copy
+{
+    public static void main(String args[]) throws Exception
+    {
+        FileInputStream fin = new FileInputStream("Copy java");
+        FileOutputStream fout = new FileOutputStream("m text");
+
+        int i = 0;
+        while ((i = fin.read()) != -1)
+        {
+            char character = (char)i;
+
+            if (Character.isUpperCase(character))
+            {
+                i = (int)Character.toLowerCase(character);
+            }
+            else if (Character.isLowerCase(character))
+            {
+                i = (int)Character.toUpperCase(character);
+            }
+            else if (Character.isDigit(i))
+            {
+                i = ' ';
+            }
+            fout.write(i);
+        }
+
+        System.out.println("success full");
+        fin.close();
+        fout.close();
+    }
+}
