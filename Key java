@@ -1,0 +1,30 @@
+import java.awt.*;
+import java.awt.event.*;
+
+<applet code = "Simplekey" width=500 Height=500>
+</applet>
+
+public class Simplekey extends Applet implements
+keylistener
+{
+    String msg = " msg: ";
+    int x=25, y=25, a=100, b=100;
+
+    public void init()
+    {
+        addkeylistener(this);
+    }
+
+    public void keyPressed(KeyEvent ke)
+    {
+        msg = "key Pressed";
+        showStatus ("key Down");
+        repaint();
+    }
+
+    public void keyReleased(KeyEvent ke)
+    {
+        msg = "key Released";
+        showStatus ("key Up");
+        repaint ();
+    }
